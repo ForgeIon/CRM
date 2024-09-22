@@ -1,0 +1,511 @@
+{
+  "nodes": [
+    {
+      "type": "command",
+      "name": "help",
+      "guid": "7942fe4c-dffa-4146-8cab-d254b3d80d5d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "37eda463-a170-44f9-af54-61378ffc9294"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 148,
+      "y": 188
+    },
+    {
+      "type": "command",
+      "name": "info",
+      "guid": "2224944a-561a-4fa1-824b-2f31ea37c836",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "5053a44d-4a5e-460a-974d-da0cc07aac7c"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 149,
+      "y": 325
+    },
+    {
+      "type": "response",
+      "name": "help menu",
+      "guid": "37eda463-a170-44f9-af54-61378ffc9294",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "!help",
+          "value": "Shows this menu",
+          "inline": "true"
+        },
+        {
+          "name": "!info",
+          "value": "Shows some info",
+          "inline": "true"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7942fe4c-dffa-4146-8cab-d254b3d80d5d"
+        }
+      ],
+      "x": 345,
+      "y": 182,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "1FFF57",
+        "Help Menu",
+        "",
+        "Bot Name Here",
+        "",
+        "",
+        "This is the embed description, replace this with some info about your bot!",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "show info",
+      "guid": "5053a44d-4a5e-460a-974d-da0cc07aac7c",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "2224944a-561a-4fa1-824b-2f31ea37c836"
+        }
+      ],
+      "x": 345,
+      "y": 323,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.DefaultChannel.id}",
+        "Command Author: ${dbsVars.CommandAuthor.displayName}\nTagged author: <@${dbsVars.CommandAuthor.id}>\nYou can insert more values by clicking the \"Insert Variable\" button next to this field!",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": []
+    },
+    {
+      "type": "command",
+      "name": "MakeRole",
+      "guid": "7f0f3042-e21b-48ea-b854-2e9c7c1d7299",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "9bc1dac1-16c0-4f8c-a342-a59e6984b3da",
+            "394f6f1e-3bfd-44ad-ba62-ef3ef65ff00b",
+            "1293d1d6-29a6-4c37-aec4-38a9b8b75f6c"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 509,
+      "y": 306,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "Test2",
+      "guid": "9bc1dac1-16c0-4f8c-a342-a59e6984b3da",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "RoleName",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7f0f3042-e21b-48ea-b854-2e9c7c1d7299"
+        }
+      ],
+      "x": 752,
+      "y": 185,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "RoleName",
+        "Text",
+        "temp",
+        "1"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "HexColor",
+      "guid": "394f6f1e-3bfd-44ad-ba62-ef3ef65ff00b",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "HexColor",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "f42a04d0-3914-4a4d-ba78-3b4780b7809f"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7f0f3042-e21b-48ea-b854-2e9c7c1d7299"
+        }
+      ],
+      "x": 752,
+      "y": 298,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "HexColor",
+        "Number",
+        "temp",
+        "2"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "GetUser",
+      "guid": "1293d1d6-29a6-4c37-aec4-38a9b8b75f6c",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7f0f3042-e21b-48ea-b854-2e9c7c1d7299"
+        }
+      ],
+      "x": 752,
+      "y": 422,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "User",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "MakeRoleBase",
+      "guid": "702f2a1f-e153-47e9-af1e-9d1b61bfb30a",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "GeneratedRole",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "c7b7562b-526f-4ed4-95e5-fb3fd4f7b34d"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f42a04d0-3914-4a4d-ba78-3b4780b7809f"
+        }
+      ],
+      "x": 1135,
+      "y": 216,
+      "rtype": "Server Action",
+      "rsubtype": "Add Role to Server",
+      "formdata": [
+        "${tempVars.RoleName}",
+        "FFFFFF",
+        "256",
+        "BOOL_TRUE@@",
+        "false",
+        "GeneratedRole",
+        "temp"
+      ],
+      "formnames": [
+        "rolename",
+        "color",
+        "position",
+        "hoist",
+        "mentionable",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "EditVar",
+      "guid": "c7b7562b-526f-4ed4-95e5-fb3fd4f7b34d",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "767f8860-071c-41a7-9793-029d5c591bb5"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "702f2a1f-e153-47e9-af1e-9d1b61bfb30a"
+        }
+      ],
+      "x": 1305,
+      "y": 161,
+      "rtype": "Variable",
+      "rsubtype": "Edit Variable",
+      "formdata": [
+        "${tempVars.GeneratedRole.hexColor}",
+        "temp",
+        "+",
+        "${tempVars.HexColor}"
+      ],
+      "formnames": [
+        "varname",
+        "saveVarType",
+        "oper",
+        "value"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "SetUserToRole",
+      "guid": "767f8860-071c-41a7-9793-029d5c591bb5",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "d120064a-9fdb-48c1-927c-d61ac463e9c6"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c7b7562b-526f-4ed4-95e5-fb3fd4f7b34d"
+        }
+      ],
+      "x": 1513,
+      "y": 187,
+      "rtype": "User Action",
+      "rsubtype": "Add Role to User",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "${tempVars.GeneratedRole.name}"
+      ],
+      "formnames": [
+        "user",
+        "roleName"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "ConfirmColor",
+      "guid": "f42a04d0-3914-4a4d-ba78-3b4780b7809f",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "702f2a1f-e153-47e9-af1e-9d1b61bfb30a"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "a713b422-0535-4b10-9501-cefc397ce01a"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "394f6f1e-3bfd-44ad-ba62-ef3ef65ff00b"
+        }
+      ],
+      "x": 947,
+      "y": 215,
+      "rtype": "Variable",
+      "rsubtype": "Check If Variable Exists",
+      "formdata": [
+        "HexColor",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "saveVarType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "RejectedRole",
+      "guid": "a713b422-0535-4b10-9501-cefc397ce01a",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f42a04d0-3914-4a4d-ba78-3b4780b7809f"
+        }
+      ],
+      "x": 1139,
+      "y": 353,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Apologies, User <@${dbsVars.CommandAuthor.id}>, It Appears There Has Been An Error generating The Role You Requested.\nPlease Follow The Format: !CRM_MakeRole <Name> <Color Hexcode>\nYour Message Contained The Data: Name: ${tempVars.RoleName}, Hex: ${tempVars.HexColor}.",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "GenerationCompleted",
+      "guid": "d120064a-9fdb-48c1-927c-d61ac463e9c6",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "767f8860-071c-41a7-9793-029d5c591bb5"
+        }
+      ],
+      "x": 1739,
+      "y": 174,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Role Generation Completed, Role Added To User <@${dbsVars.CommandAuthor.id}> With Name \"${tempVars.RoleName}\", And Hex Color \"${tempVars.HexColor}\"",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "!help",
+              "value": "Shows this menu",
+              "inline": "true"
+            },
+            {
+              "name": "!info",
+              "value": "Shows some info",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "1FFF57",
+          "title": "Help Menu",
+          "url": "",
+          "authorname": "Bot Name Here",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "This is the embed description, replace this with some info about your bot!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "actions": [
+        {
+          "name": "show info",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.DefaultChannel.id}",
+          "messagetext": "Command Author: ${dbsVars.CommandAuthor.displayName}\nTagged author: <@${dbsVars.CommandAuthor.id}>\nYou can insert more values by clicking the \"Insert Variable\" button next to this field!",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "MakeRole",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Test2",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "RoleName",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "1"
+        },
+        {
+          "name": "HexColor",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "HexColor",
+          "vartype": "Number",
+          "savevartype": "temp",
+          "param": "2"
+        },
+        {
+          "name": "GetUser",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "User",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "ConfirmColor",
+          "category": "Variable",
+          "type": "Check If Variable Exists",
+          "trueActions": [
+            {
+              "name": "MakeRoleBase",
+              "category": "Server Action",
+              "type": "Add Role to Server",
+              "messageActionRows": [],
+              "rolename": "${tempVars.RoleName}",
+              "color": "FFFFFF",
+              "position": "256",
+              "hoist": "BOOL_TRUE@@",
+              "mentionable": "false",
+              "savetovariable": "GeneratedRole",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "EditVar",
+              "category": "Variable",
+              "type": "Edit Variable",
+              "messageActionRows": [],
+              "varname": "${tempVars.GeneratedRole.hexColor}",
+              "savevartype": "temp",
+              "oper": "+",
+              "value": "${tempVars.HexColor}"
+            },
+            {
+              "name": "SetUserToRole",
+              "category": "User Action",
+              "type": "Add Role to User",
+              "messageActionRows": [],
+              "user": "${dbsVars.CommandAuthor.id}",
+              "rolename": "${tempVars.GeneratedRole.name}"
+            },
+            {
+              "name": "GenerationCompleted",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Role Generation Completed, Role Added To User <@${dbsVars.CommandAuthor.id}> With Name \"${tempVars.RoleName}\", And Hex Color \"${tempVars.HexColor}\"",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "RejectedRole",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Apologies, User <@${dbsVars.CommandAuthor.id}>, It Appears There Has Been An Error generating The Role You Requested.\nPlease Follow The Format: !CRM_MakeRole <Name> <Color Hexcode>\nYour Message Contained The Data: Name: ${tempVars.RoleName}, Hex: ${tempVars.HexColor}.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "messageActionRows": [],
+          "varname": "HexColor",
+          "savevartype": "temp"
+        }
+      ]
+    }
+  ]
+}
